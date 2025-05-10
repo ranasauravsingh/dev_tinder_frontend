@@ -12,6 +12,7 @@ const Login = () => {
 
 	const [email, setEmail] = useState("dhoni@test.com");
 	const [password, setPassword] = useState("Admin@123");
+	const [error, setError] = useState("");
 
 	const handleLogin = () => {
 		const requestPayload = {
@@ -28,6 +29,9 @@ const Login = () => {
 				}
 			})
 			.catch((err) => {
+				if (err?.response?.status === 400) {
+					setError(`ERROR: ${err?.response?.data?.message}`);
+				}
 				handleError(err);
 			});
 	};
@@ -55,6 +59,7 @@ const Login = () => {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 					/>
+					{error && <p className="text-red-500">{error}</p>}
 					<div className="card-actions justify-center mt-5">
 						<button
 							className="btn btn-primary"
