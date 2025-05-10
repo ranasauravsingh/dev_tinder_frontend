@@ -1,12 +1,33 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
+import { REQUEST_LOGOUT } from "../services/auth";
+import { handleError } from "../helpers/common_functions";
+import { removeUser } from "../store/userSlice";
 
 const NavBar = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const userState = useSelector((state) => state?.user);
+
+	const handleLogout = () => {
+		REQUEST_LOGOUT()
+			.then(() => {
+				navigate("/login");
+				dispatch(removeUser());
+			})
+			.catch((err) => {
+				handleError(err);
+			});
+	};
 
 	return (
 		<div className="navbar bg-base-300 shadow-sm">
 			<div className="flex-1">
-				<a className="btn btn-ghost text-xl">DevTinder</a>
+				<Link to={"/"} className="btn btn-ghost text-xl">
+					DevTinder
+				</Link>
 			</div>
 			{userState && (
 				<div className="flex gap-5 mx-5 align-center">
@@ -34,16 +55,15 @@ const NavBar = () => {
 							className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
 						>
 							<li>
-								<a className="justify-between">
+								<Link
+									to={"/profile"}
+									className="justify-between"
+								>
 									Profile
-									<span className="badge">New</span>
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a>Settings</a>
-							</li>
-							<li>
-								<a>Logout</a>
+								<a onClick={handleLogout}>Logout</a>
 							</li>
 						</ul>
 					</div>
