@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { REQUEST_LOGIN } from "../services/auth";
 import { addUser } from "../store/userSlice";
+import { handleError } from "../helpers/common_functions";
 
 const Login = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const [email, setEmail] = useState("dhoni@test.com");
 	const [password, setPassword] = useState("Admin@123");
@@ -21,10 +24,11 @@ const Login = () => {
 				const userData = res?.data?.data;
 				if (userData) {
 					dispatch(addUser(userData));
+					navigate("/");
 				}
 			})
 			.catch((err) => {
-				console.log(err);
+				handleError(err);
 			});
 	};
 
