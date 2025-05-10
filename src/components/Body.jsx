@@ -4,7 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 import NavBar from "../ui/NavBar";
 import Footer from "../ui/Footer";
-import { REQUEST_PROFILE_VIEW } from "../services/auth";
+import { REQUEST_PROFILE_VIEW } from "../services/profile";
 import { handleError } from "../helpers/common_functions";
 import { addUser } from "../store/userSlice";
 

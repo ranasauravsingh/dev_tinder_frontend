@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import Body from "./components/Body";
-import HomePage from "./pages/HomePage";
+import Feed from "./pages/Feed";
 import Login from "./pages/Login";
-import { Provider } from "react-redux";
+import Profile from "./pages/Profile";
 import store from "./store/store";
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
 			<Router basename="/">
 				<Routes>
 					<Route path="/" element={<Body />}>
-						<Route path="/" element={<HomePage />} />
+						<Route path="/" element={<Feed />} />
 						<Route path="/login" element={<Login />} />
+						<Route path="/profile" element={<Profile />} />
 					</Route>
 				</Routes>
 			</Router>
