@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { REQUEST_LOGIN } from "../services/auth";
+import { addUser } from "../store/userSlice";
 
 const Login = () => {
+	const dispatch = useDispatch();
+
 	const [email, setEmail] = useState("dhoni@test.com");
 	const [password, setPassword] = useState("Admin@123");
 
@@ -13,7 +18,10 @@ const Login = () => {
 
 		REQUEST_LOGIN(requestPayload)
 			.then((res) => {
-				console.log(res);
+				const userData = res?.data?.data;
+				if (userData) {
+					dispatch(addUser(userData));
+				}
 			})
 			.catch((err) => {
 				console.log(err);
