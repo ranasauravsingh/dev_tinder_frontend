@@ -31,7 +31,7 @@ const NavBar = () => {
 			</div>
 			{userState && (
 				<div className="flex gap-5 mx-5 align-center">
-					<span className="self-center">
+					<span className="self-center capitalize">
 						{userState?.firstName || "Nobody"}
 					</span>
 					<div className="dropdown dropdown-end">
