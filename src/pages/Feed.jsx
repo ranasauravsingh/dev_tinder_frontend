@@ -24,7 +24,7 @@ const Feed = () => {
 	};
 
 	useEffect(() => {
-		if (!userFeed) {
+		if (userFeed?.length === 0) {
 			fetchFeed();
 		}
 
