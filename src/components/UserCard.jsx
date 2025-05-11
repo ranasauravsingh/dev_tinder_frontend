@@ -16,10 +16,10 @@ const UserCard = (props) => {
 				<h2 className="card-title capitalize">{`${firstName} ${
 					lastName || ""
 				}`}</h2>
-				<p>{about || ""}</p>
 				{age && gender && (
 					<p className="capitalize">{`${age}, ${gender}`}</p>
 				)}
+				<p>{about || ""}</p>
 				{!isEdit && (
 					<div className="card-actions justify-center my-5">
 						<button className="btn btn-primary">{`Ignored`}</button>
