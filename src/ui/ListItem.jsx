@@ -1,5 +1,5 @@
 const ListItem = (props) => {
-	const { listData } = props;
+	const { listData, isRequest = false } = props;
 	const { photoUrl, firstName, lastName, age, gender, about, _id } =
 		listData || {};
 
@@ -27,40 +27,46 @@ const ListItem = (props) => {
 					{about}
 				</div>
 			</div>
-			{/* <button className="btn btn-square btn-ghost">
-				<svg
-					className="size-[1.2em]"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-				>
-					<g
-						strokeLinejoin="round"
-						strokeLinecap="round"
-						strokeWidth="2"
-						fill="none"
-						stroke="currentColor"
-					>
-						<path d="M6 3L20 12 6 21 6 3z"></path>
-					</g>
-				</svg>
-			</button>
-			<button className="btn btn-square btn-ghost">
-				<svg
-					className="size-[1.2em]"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-				>
-					<g
-						strokeLinejoin="round"
-						strokeLinecap="round"
-						strokeWidth="2"
-						fill="none"
-						stroke="currentColor"
-					>
-						<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
-					</g>
-				</svg>
-			</button> */}
+			{isRequest && (
+				<div className="flex items-center gap-1">
+					<div className="tooltip tooltip-bottom" data-tip="Reject">
+						<button className="btn btn-square btn-ghost">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="size-6"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M6 18 18 6M6 6l12 12"
+								/>
+							</svg>
+						</button>
+					</div>
+					<div className="tooltip tooltip-bottom" data-tip="Accept">
+						<button className="btn btn-square btn-ghost">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="size-6"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="m4.5 12.75 6 6 9-13.5"
+								/>
+							</svg>
+						</button>
+					</div>
+				</div>
+			)}
 		</li>
 	);
 };
