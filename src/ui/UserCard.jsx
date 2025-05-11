@@ -1,6 +1,7 @@
 const UserCard = (props) => {
-	const { user, isEdit = false } = props;
-	const { photoUrl, firstName, lastName, age, gender, about } = user || {};
+	const { user, isEdit = false, handleSendRequest } = props;
+	const { photoUrl, firstName, lastName, age, gender, about, _id } =
+		user || {};
 	return (
 		<div className="card bg-base-200 w-76 shadow-sm">
 			<figure>
@@ -22,8 +23,14 @@ const UserCard = (props) => {
 				<p>{about || ""}</p>
 				{!isEdit && (
 					<div className="card-actions justify-center my-5">
-						<button className="btn btn-primary">{`Ignored`}</button>
-						<button className="btn btn-neutral">{`Interested`}</button>
+						<button
+							className="btn btn-primary"
+							onClick={() => handleSendRequest("ignored", _id)}
+						>{`Ignored`}</button>
+						<button
+							className="btn btn-neutral"
+							onClick={() => handleSendRequest("interested", _id)}
+						>{`Interested`}</button>
 					</div>
 				)}
 			</div>
