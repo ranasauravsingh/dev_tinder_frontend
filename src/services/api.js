@@ -7,6 +7,7 @@ const addPrefix = (path) => {
 //? Auth Apis
 export const ROUTE_LOGIN = addPrefix("/login");
 export const ROUTE_LOGOUT = addPrefix("/logout");
+export const ROUTE_SIGNUP = addPrefix("/signup");
 
 //? Profile Apis
 export const ROUTE_PROFILE_VIEW = addPrefix("/profile/view");

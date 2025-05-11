@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import store from "./store/store";
 import Connections from "./pages/Connections";
 import Requests from "./pages/Requests";
+import Register from "./pages/Register";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/" element={<Body />}>
 						<Route path="/" element={<Feed />} />
 						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/connections" element={<Connections />} />
 						<Route path="/requests" element={<Requests />} />
