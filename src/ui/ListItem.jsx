@@ -1,5 +1,5 @@
 const ListItem = (props) => {
-	const { listData, isRequest = false } = props;
+	const { listData, isRequest = false, handleReviewRequest } = props;
 	const { photoUrl, firstName, lastName, age, gender, about, _id } =
 		listData || {};
 
@@ -30,36 +30,42 @@ const ListItem = (props) => {
 			{isRequest && (
 				<div className="flex items-center gap-1">
 					<div className="tooltip tooltip-bottom" data-tip="Reject">
-						<button className="btn btn-square btn-ghost">
+						<button
+							className="btn btn-square btn-ghost"
+							onClick={() => handleReviewRequest("rejected", _id)}
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
 								viewBox="0 0 24 24"
-								stroke-width="1.5"
+								strokeWidth="1.5"
 								stroke="currentColor"
-								class="size-6"
+								className="size-6"
 							>
 								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									strokeLinecap="round"
+									strokeLinejoin="round"
 									d="M6 18 18 6M6 6l12 12"
 								/>
 							</svg>
 						</button>
 					</div>
 					<div className="tooltip tooltip-bottom" data-tip="Accept">
-						<button className="btn btn-square btn-ghost">
+						<button
+							className="btn btn-square btn-ghost"
+							onClick={() => handleReviewRequest("accepted", _id)}
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
 								viewBox="0 0 24 24"
-								stroke-width="1.5"
+								strokeWidth="1.5"
 								stroke="currentColor"
-								class="size-6"
+								className="size-6"
 							>
 								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									strokeLinecap="round"
+									strokeLinejoin="round"
 									d="m4.5 12.75 6 6 9-13.5"
 								/>
 							</svg>

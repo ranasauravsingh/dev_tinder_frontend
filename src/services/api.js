@@ -16,3 +16,6 @@ export const ROUTE_PROFILE_EDIT = addPrefix("/profile/edit");
 export const ROUTE_USER_FEED = addPrefix("/user/feed");
 export const ROUTE_USER_CONNECTIONS = addPrefix("/user/connections");
 export const ROUTE_USER_CONNECTION_REQUESTS = addPrefix("/user/requests/received");
+
+//? Request Apis
+export const ROUTE_REVIEW_USER_REQUEST = addPrefix("/request/review");
