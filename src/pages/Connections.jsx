@@ -9,7 +9,7 @@ import ListItem from "../ui/ListItem";
 const Connections = () => {
 	const dispatch = useDispatch();
 
-	const userConnections = useSelector((state) => state?.connections);
+	const userConnections = useSelector((state) => state?.connections) || [];
 
 	const fetchConnections = () => {
 		REQUEST_USER_CONNECTIONS()
@@ -25,7 +25,7 @@ const Connections = () => {
 	};
 
 	useEffect(() => {
-		if (!userConnections) {
+		if (userConnections?.length === 0) {
 			fetchConnections();
 		}
 
