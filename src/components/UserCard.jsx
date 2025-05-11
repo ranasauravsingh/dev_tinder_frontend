@@ -1,5 +1,5 @@
 const UserCard = (props) => {
-	const { user } = props;
+	const { user, isEdit = false } = props;
 	const { photoUrl, firstName, lastName, age, gender, about } = user || {};
 	return (
 		<div className="card bg-base-200 w-76 shadow-sm">
@@ -17,11 +17,15 @@ const UserCard = (props) => {
 					lastName || ""
 				}`}</h2>
 				<p>{about || ""}</p>
-				{age && gender && <p>{`${age}, ${gender}`}</p>}
-				<div className="card-actions justify-center my-5">
-					<button className="btn btn-primary">{`Ignored`}</button>
-					<button className="btn btn-neutral">{`Interested`}</button>
-				</div>
+				{age && gender && (
+					<p className="capitalize">{`${age}, ${gender}`}</p>
+				)}
+				{!isEdit && (
+					<div className="card-actions justify-center my-5">
+						<button className="btn btn-primary">{`Ignored`}</button>
+						<button className="btn btn-neutral">{`Interested`}</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

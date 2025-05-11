@@ -10,6 +10,7 @@ export const ROUTE_LOGOUT = addPrefix("/logout");
 
 //? Profile Apis
 export const ROUTE_PROFILE_VIEW = addPrefix("/profile/view");
+export const ROUTE_PROFILE_EDIT = addPrefix("/profile/edit");
 
 //? User Apis
 export const ROUTE_USER_FEED = addPrefix("/user/feed");

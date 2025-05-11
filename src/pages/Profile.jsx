@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import EditProfile from "../components/EditProfile";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
-  return (
-    <div>Profile</div>
-  )
-}
+	const user = useSelector((state) => state?.user);
 
-export default Profile
+	if (!user)
+		return (
+			<div className="flex justify-center my-50 text-lg">
+				{`No user data`}
+			</div>
+		);
+
+	return (
+		<div>
+			<EditProfile user={user} />
+		</div>
+	);
+};
+
+export default Profile;
