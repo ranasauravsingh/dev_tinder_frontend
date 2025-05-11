@@ -32,6 +32,8 @@ const Connections = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	if (userConnections?.length === 0) return <div className="flex justify-center my-50 text-lg">No Connections</div>;
+
 	return (
 		<div className="flex justify-center my-10">
 			<div>
