@@ -6,6 +6,7 @@ import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import store from "./store/store";
+import Connections from "./pages/Connections";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 						<Route path="/" element={<Feed />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/profile" element={<Profile />} />
+						<Route path="/connections" element={<Connections />} />
 					</Route>
 				</Routes>
 			</Router>

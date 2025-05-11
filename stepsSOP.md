@@ -28,3 +28,4 @@
 - build the user card on feed
 - Edit Profile Feature
 - Show Toast Message on save of profile
+- New Page - See all my connections
