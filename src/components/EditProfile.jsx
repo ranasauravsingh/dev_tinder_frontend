@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import UserCard from "./UserCard";
+import UserCard from "../ui/UserCard";
 import { REQUEST_PROFILE_EDIT } from "../services/profile";
 import { handleError } from "../helpers/common_functions";
 import { addUser } from "../store/userSlice";

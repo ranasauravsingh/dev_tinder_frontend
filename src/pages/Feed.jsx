@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleError } from "../helpers/common_functions";
 import { REQUEST_USER_FEED } from "../services/user";
 import { storeFeed } from "../store/feedSlice";
-import UserCard from "../components/UserCard";
+import UserCard from "../ui/UserCard";
 
 const Feed = () => {
 	const dispatch = useDispatch();
