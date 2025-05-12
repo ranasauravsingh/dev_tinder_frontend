@@ -3,8 +3,7 @@ const Footer = () => {
 		<footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4 fixed bottom-0">
 			<aside>
 				<p>
-					Copyright © {new Date().getFullYear()} - All right reserved
-					by DevTinder
+					Made with passion by ranasauravsingh {new Date().getFullYear()}
 				</p>
 			</aside>
 		</footer>
