@@ -21,3 +21,6 @@ export const ROUTE_USER_CONNECTION_REQUESTS = addPrefix("/user/requests/received
 //? Request Apis
 export const ROUTE_REVIEW_USER_REQUEST = addPrefix("/request/review");
 export const ROUTE_SEND_USER_REQUEST = addPrefix("/request/send");
+
+//? Chat Apis
+export const ROUTE_FETCH_CHATS = addPrefix("/chat");

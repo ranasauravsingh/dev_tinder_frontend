@@ -1,5 +1,4 @@
 # DevTinder
-
 - Create a Vite + React application
 - Remove unecessary code and create a Hello World app
 - Install Tailwind CSS
@@ -33,7 +32,6 @@
 - Send/Ignore the user card from the feed
 
 # Deployment
-
 - Sign up on AWS 
 - Launch instance
 - chmod 400 <secret>.pem
@@ -63,7 +61,6 @@
     - Modify the BASEURL in frontend project to "/api"
 
 # Nginx config: 
-
     Frontend = <Public Ipv4 address>
     Backend = <Public IPv4>:7777
 
@@ -84,3 +81,17 @@
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }
+
+# Real Time Chat using Websocket(Socket.io)
+    - Build the UI for a chat window on /chat/:targetUserId
+    - Setup socket.io in backend
+    - npm i socket.io
+    - Setup frontend socket.io-client
+    - Initialize the chat
+    - createSocketConnection
+    - Listen to events
+    - Homework:  improve the UI
+    - Homework: Fix Security Bug - auth in web sockets
+    - Homework: Fix bug - If I'm not friend, then I should not be able to send message
+    - Homework: feat: Show Green Symbol when online???? - [last Seen 2 hours ago]
+    - Homework: Limit messages when fetching from DB

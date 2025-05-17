@@ -9,6 +9,7 @@ import store from "./store/store";
 import Connections from "./pages/Connections";
 import Requests from "./pages/Requests";
 import Register from "./pages/Register";
+import Chat from "./pages/Chat";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 						<Route path="/register" element={<Register />} />
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/connections" element={<Connections />} />
+						<Route path="/chat/:targetUserId" element={<Chat />} />
 						<Route path="/requests" element={<Requests />} />
 					</Route>
 				</Routes>
