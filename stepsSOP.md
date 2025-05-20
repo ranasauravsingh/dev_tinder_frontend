@@ -82,6 +82,14 @@
         proxy_cache_bypass $http_upgrade;
     }
 
+# Adding a custom Domain name
+    - purchased domain name from godaddy/hostinger
+    - sign up on cloudflare & add a new domain name
+    - change the nameservers on hostinger and point it to cloudflare
+    - wait for sometime till your nameservers are updated ~15 minutes
+    - DNS record: A devtinder.in 43.204.96.49
+    - Enable SSL for website 
+
 # Real Time Chat using Websocket(Socket.io)
     - Build the UI for a chat window on /chat/:targetUserId
     - Setup socket.io in backend
