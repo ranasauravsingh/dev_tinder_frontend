@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -38,11 +38,13 @@ const Body = () => {
 	}, []);
 
 	return (
-		<React.Fragment>
+		<div className="flex flex-col min-h-screen">
 			<NavBar />
-			<Outlet />
+			<main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 pb-16 sm:pb-20 overflow-y-auto scroll-smooth">
+				<Outlet />
+			</main>
 			<Footer />
-		</React.Fragment>
+		</div>
 	);
 };
 
