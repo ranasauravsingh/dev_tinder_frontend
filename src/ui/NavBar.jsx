@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -8,6 +9,7 @@ import { removeUser } from "../store/userSlice";
 const NavBar = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const dropdownRef = useRef(null);
 
 	const userState = useSelector((state) => state?.user);
 
@@ -20,6 +22,18 @@ const NavBar = () => {
 			.catch((err) => {
 				handleError(err);
 			});
+	};
+
+	const closeDropdown = () => {
+		if (dropdownRef.current) {
+			dropdownRef.current.blur();
+			document.activeElement.blur();
+		}
+	};
+
+	const handleMenuItemClick = (callback) => {
+		closeDropdown();
+		if (callback) callback();
 	};
 
 	return (
@@ -39,6 +53,7 @@ const NavBar = () => {
 							tabIndex={0}
 							role="button"
 							className="btn btn-ghost btn-circle avatar"
+							ref={dropdownRef}
 						>
 							<div className="w-8 sm:w-10 rounded-full">
 								<img
@@ -58,6 +73,7 @@ const NavBar = () => {
 								<Link
 									to={"/profile"}
 									className="justify-between"
+									onClick={() => handleMenuItemClick()}
 								>
 									Profile
 								</Link>
@@ -66,6 +82,7 @@ const NavBar = () => {
 								<Link
 									to={"/connections"}
 									className="justify-between"
+									onClick={() => handleMenuItemClick()}
 								>
 									Connections
 								</Link>
@@ -74,12 +91,19 @@ const NavBar = () => {
 								<Link
 									to={"/requests"}
 									className="justify-between"
+									onClick={() => handleMenuItemClick()}
 								>
 									Requests
 								</Link>
 							</li>
 							<li>
-								<a onClick={handleLogout}>Logout</a>
+								<a
+									onClick={() =>
+										handleMenuItemClick(handleLogout)
+									}
+								>
+									Logout
+								</a>
 							</li>
 						</ul>
 					</div>
