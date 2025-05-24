@@ -23,14 +23,14 @@ const NavBar = () => {
 	};
 
 	return (
-		<div className="navbar bg-base-300 shadow-sm">
+		<div className="navbar bg-base-300 shadow-sm px-4">
 			<div className="flex-1">
 				<Link to={"/"} className="btn btn-ghost text-xl">
 					DevTinder
 				</Link>
 			</div>
 			{userState && (
-				<div className="flex gap-5 mx-5 align-center">
+				<div className="flex items-center gap-3 sm:gap-5 mx-2 sm:mx-5">
 					<span className="self-center capitalize">
 						{userState?.firstName || "Nobody"}
 					</span>
@@ -40,7 +40,7 @@ const NavBar = () => {
 							role="button"
 							className="btn btn-ghost btn-circle avatar"
 						>
-							<div className="w-10 rounded-full">
+							<div className="w-8 sm:w-10 rounded-full">
 								<img
 									alt="avatar image"
 									src={
@@ -52,7 +52,7 @@ const NavBar = () => {
 						</div>
 						<ul
 							tabIndex={0}
-							className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+							className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-40 sm:w-52 p-2 shadow"
 						>
 							<li>
 								<Link
