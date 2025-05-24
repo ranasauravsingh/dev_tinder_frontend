@@ -73,7 +73,7 @@ const AuthForm = (props) => {
 				)}
 				<div className="card-actions justify-center my-4 sm:my-5">
 					<button
-						className="btn btn-primary btn-md sm:btn-md w-full sm:w-auto"
+						className="btn btn-primary btn-md sm:btn-md w-full"
 						onClick={() => {
 							const payload = {
 								...(firstName !== "" && { firstName }),
