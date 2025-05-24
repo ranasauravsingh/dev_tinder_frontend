@@ -68,36 +68,36 @@ const Feed = () => {
 	}, []);
 
 	return !isLoading ? (
-		<div>
+		<div className="container mx-auto">
 			{userFeed?.length > 0 ? (
-				<div className="flex items-center justify-center my-10">
+				<div className="flex items-center justify-center my-6 sm:my-10">
 					<UserCard
 						user={userFeed[0]}
 						handleSendRequest={handleSendRequest}
 					/>
 				</div>
 			) : (
-				<div className="flex justify-center my-50 text-lg">No feed</div>
+				<div className="flex justify-center my-10 sm:my-12 text-base sm:text-lg">No feed</div>
 			)}
 			{toast && (
-				<div className="toast toast-top toast-end">
-					<div className="alert alert-success">
+				<div className="toast toast-bottom toast-end z-[1]">
+					<div className="alert alert-success text-sm sm:text-base">
 						<span>{toast}</span>
 					</div>
 				</div>
 			)}
 		</div>
 	) : (
-		<div className="flex items-center justify-center my-10">
-			<div className="flex w-76 flex-col gap-4">
-				<div className="skeleton h-50 w-full"></div>
-				<div className="skeleton h-4 w-28"></div>
-				<div className="skeleton h-4 w-28"></div>
+		<div className="flex items-center justify-center my-6 sm:my-10">
+			<div className="w-full max-w-xs sm:max-w-sm flex flex-col gap-3 sm:gap-4 px-4">
+				<div className="skeleton h-40 sm:h-48 w-full"></div>
+				<div className="skeleton h-4 w-20 sm:w-28"></div>
+				<div className="skeleton h-4 w-20 sm:w-28"></div>
 				<div className="skeleton h-4 w-full"></div>
 				<div className="skeleton h-4 w-full"></div>
-				<div className="flex items-center justify-center gap-4">
-					<div className="skeleton h-10 w-1/4"></div>
-					<div className="skeleton h-10 w-1/4"></div>
+				<div className="flex items-center justify-center gap-3 sm:gap-4">
+					<div className="skeleton h-8 sm:h-10 w-1/4"></div>
+					<div className="skeleton h-8 sm:h-10 w-1/4"></div>
 				</div>
 			</div>
 		</div>
