@@ -60,6 +60,9 @@ const Feed = () => {
 		if (userFeed?.length === 0) {
 			fetchFeed();
 		}
+		else {
+			setIsLoading(false);
+		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
