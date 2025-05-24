@@ -35,12 +35,12 @@ const Connections = () => {
 	if (userConnections?.length === 0) return <div className="flex justify-center my-50 text-lg">No Connections</div>;
 
 	return (
-		<div className="flex justify-center my-10">
-			<div>
-				<div className="text-center text-lg font-semibold">
+		<div className="flex justify-center my-6 sm:my-10">
+			<div className="w-full max-w-md sm:max-w-lg">
+				<div className="text-center text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
 					Connections
 				</div>
-				<ul className="list bg-base-100 rounded-box shadow-md my-5">
+				<ul className="list bg-base-100 rounded-box shadow-md p-4 sm:p-6">
 					{userConnections?.map((connection) => (
 						<ListItem listData={connection} key={connection?._id}/>
 					))}

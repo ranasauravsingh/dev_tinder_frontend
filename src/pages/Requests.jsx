@@ -66,12 +66,12 @@ const Requests = () => {
 	return (
 		<div>
 			{userRequests?.length > 0 ? (
-				<div className="flex justify-center my-10">
-					<div>
-						<div className="text-center text-lg font-semibold">
+				<div className="flex justify-center my-6 sm:my-10">
+					<div className="w-full max-w-md sm:max-w-lg">
+						<div className="text-center text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
 							Requests
 						</div>
-						<ul className="list bg-base-100 rounded-box shadow-md my-5">
+						<ul className="list bg-base-100 rounded-box shadow-md p-4 sm:p-6">
 							{userRequests?.map((request) => (
 								<ListItem
 									listData={request}
@@ -89,8 +89,8 @@ const Requests = () => {
 				</div>
 			)}
 			{toast && (
-				<div className="toast toast-top toast-end">
-					<div className="alert alert-success">
+				<div className="toast toast-bottom toast-end z-[1]">
+					<div className="alert alert-success text-sm sm:text-base">
 						<span>{toast}</span>
 					</div>
 				</div>

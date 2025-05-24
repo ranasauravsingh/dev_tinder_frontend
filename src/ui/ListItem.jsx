@@ -7,34 +7,38 @@ const ListItem = (props) => {
 		listData || {};
 
 	return (
-		<li className="list-row" key={_id}>
+		<li
+			className="flex items-center gap-3 sm:gap-4 py-3 sm:py-4 border-b border-base-200 last:border-b-0"
+			key={_id}
+		>
 			<div>
 				<img
-					className="size-11 rounded-full"
+					className="w-10 sm:w-12 h-10 sm:h-12 rounded-full object-cover"
 					src={
 						photoUrl ||
 						"https://img.daisyui.com/images/profile/demo/1@94.webp"
 					}
+					alt="User photo"
 				/>
 			</div>
-			<div>
-				<div className="capitalize font-semibold">{`${firstName} ${
+			<div className="flex-1 min-w-0">
+				<div className="capitalize font-semibold text-sm sm:text-base">{`${firstName} ${
 					lastName || ""
 				}`}</div>
 				{age && gender && (
-					<div className="text-xs capitalize font-semibold opacity-60 mt-1.5">
+					<div className="text-xs sm:text-sm capitalize opacity-60 mt-1">
 						{`${age}, ${gender}`}
 					</div>
 				)}
-				<div className="text-xs normal-case font-semibold opacity-60 w-100 mt-0.5">
-					{about}
+				<div className="text-xs sm:text-sm normal-case opacity-60 mt-0.5 truncate">
+					{about || "No bio available"}
 				</div>
 			</div>
 			{isRequest ? (
-				<div className="flex items-center gap-1">
+				<div className="flex items-center gap-2 sm:gap-3">
 					<div className="tooltip tooltip-bottom" data-tip="Reject">
 						<button
-							className="btn btn-square btn-ghost"
+							className="btn btn-square btn-ghost btn-xs sm:btn-sm"
 							onClick={() => handleReviewRequest("rejected", _id)}
 						>
 							<svg
@@ -43,7 +47,7 @@ const ListItem = (props) => {
 								viewBox="0 0 24 24"
 								strokeWidth="1.5"
 								stroke="currentColor"
-								className="size-6"
+								className="w-5 sm:w-6 h-5 sm:h-6"
 							>
 								<path
 									strokeLinecap="round"
@@ -55,7 +59,7 @@ const ListItem = (props) => {
 					</div>
 					<div className="tooltip tooltip-bottom" data-tip="Accept">
 						<button
-							className="btn btn-square btn-ghost"
+							className="btn btn-square btn-ghost btn-xs sm:btn-sm"
 							onClick={() => handleReviewRequest("accepted", _id)}
 						>
 							<svg
@@ -64,7 +68,7 @@ const ListItem = (props) => {
 								viewBox="0 0 24 24"
 								strokeWidth="1.5"
 								stroke="currentColor"
-								className="size-6"
+								className="w-5 sm:w-6 h-5 sm:h-6"
 							>
 								<path
 									strokeLinecap="round"
@@ -76,10 +80,10 @@ const ListItem = (props) => {
 					</div>
 				</div>
 			) : (
-				<div className="flex items-center gap-1">
+				<div className="flex items-center gap-2 sm:gap-3">
 					<div className="tooltip tooltip-bottom" data-tip="Chat">
 						<button
-							className="btn btn-square btn-ghost"
+							className="btn btn-square btn-ghost btn-xs sm:btn-sm"
 							onClick={() => navigate(`/chat/${_id}`)}
 						>
 							<svg
@@ -88,7 +92,7 @@ const ListItem = (props) => {
 								viewBox="0 0 24 24"
 								strokeWidth={1.5}
 								stroke="currentColor"
-								className="size-6"
+								className="w-5 sm:w-6 h-5 sm:h-6"
 							>
 								<path
 									strokeLinecap="round"
