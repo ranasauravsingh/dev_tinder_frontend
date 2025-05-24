@@ -13,7 +13,7 @@ const Profile = () => {
 		);
 
 	return (
-		<div>
+		<div className="container mx-auto">
 			<EditProfile user={user} />
 		</div>
 	);
