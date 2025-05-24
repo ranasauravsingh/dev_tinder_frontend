@@ -38,7 +38,7 @@ const Register = () => {
 	};
 
 	return (
-		<div className="flex justify-center my-10">
+		<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex justify-center my-6 sm:my-10">
 			<AuthForm
 				isLogin={false}
 				error={error}

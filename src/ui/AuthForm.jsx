@@ -10,52 +10,70 @@ const AuthForm = (props) => {
 	const [password, setPassword] = useState("");
 
 	return (
-		<div className="card card-border bg-base-200 w-96">
-			<div className="card-body">
-				<h2 className="card-title justify-center">{isLogin ? "Log In" : "Sign Up"}</h2>
+		<div className="card bg-base-200 w-full max-w-md sm:max-w-lg shadow-sm border border-base-300">
+			<div className="card-body p-4 sm:p-6">
+				<h2 className="card-title justify-center text-lg sm:text-xl">
+					{isLogin ? "Log In" : "Sign Up"}
+				</h2>
 
 				{!isLogin && (
 					<React.Fragment>
-						<label className="label">First Name</label>
-						<input
-							type="text"
-							className="input"
-							placeholder="First Name"
-							value={firstName}
-							onChange={(e) => setFirstName(e.target.value)}
-						/>
-						<label className="label">Last Name</label>
-						<input
-							type="text"
-							className="input"
-							placeholder="Last Name"
-							value={lastName}
-							onChange={(e) => setLastName(e.target.value)}
-						/>
+						<div className="my-2 sm:my-3">
+							<label className="label text-sm sm:text-base">
+								First Name
+							</label>
+							<input
+								type="text"
+								className="input input-bordered w-full text-sm sm:text-base"
+								placeholder="First Name"
+								value={firstName}
+								onChange={(e) => setFirstName(e.target.value)}
+							/>
+						</div>
+						<div className="my-2 sm:my-3">
+							<label className="label text-sm sm:text-base">
+								Last Name
+							</label>
+							<input
+								type="text"
+								className="input input-bordered w-full text-sm sm:text-base"
+								placeholder="Last Name"
+								value={lastName}
+								onChange={(e) => setLastName(e.target.value)}
+							/>
+						</div>
 					</React.Fragment>
 				)}
 
-				<label className="label">Email</label>
-				<input
-					type="email"
-					className="input"
-					placeholder="Email"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-				/>
+				<div className="my-2 sm:my-3">
+					<label className="label text-sm sm:text-base">Email</label>
+					<input
+						type="email"
+						className="input input-bordered w-full text-sm sm:text-base"
+						placeholder="Email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+				</div>
 
-				<label className="label">Password</label>
-				<input
-					type="password"
-					className="input"
-					placeholder="Password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-				{error && <p className="text-red-500">{error}</p>}
-				<div className="card-actions justify-center my-5">
+				<div className="my-2 sm:my-3">
+					<label className="label text-sm sm:text-base">
+						Password
+					</label>
+					<input
+						type="password"
+						className="input input-bordered w-full text-sm sm:text-base"
+						placeholder="Password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+				</div>
+				{error && (
+					<p className="text-red-500 text-sm sm:text-base">{error}</p>
+				)}
+				<div className="card-actions justify-center my-4 sm:my-5">
 					<button
-						className="btn btn-primary"
+						className="btn btn-primary btn-md sm:btn-md w-full sm:w-auto"
 						onClick={() => {
 							const payload = {
 								...(firstName !== "" && { firstName }),
@@ -69,11 +87,27 @@ const AuthForm = (props) => {
 						{isLogin ? "Log in" : "Sign up"}
 					</button>
 				</div>
-				<div className="flex justify-center">
+				<div className="flex justify-center text-sm sm:text-base">
 					{isLogin ? (
-						<Link to={"/register"}>Don't have account? Sign Up</Link>
+						<span>
+							Don't have an account?{" "}
+							<Link
+								to={"/register"}
+								className="text-info hover:underline"
+							>
+								Sign Up
+							</Link>
+						</span>
 					) : (
-						<Link to={"/login"}>Have an account? Log In</Link>
+						<span>
+							Have an account?{" "}
+							<Link
+								to={"/login"}
+								className="text-info hover:underline"
+							>
+								Log In
+							</Link>
+						</span>
 					)}
 				</div>
 			</div>
