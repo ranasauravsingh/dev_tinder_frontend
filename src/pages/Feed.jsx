@@ -10,10 +10,12 @@ import { REQUEST_SEND_USER_REQUEST } from "../services/request";
 const Feed = () => {
 	const dispatch = useDispatch();
 	const userFeed = useSelector((state) => state?.feed) || [];
+	const [isLoading, setIsLoading] = useState(true);
 
 	const [toast, setToast] = useState("");
 
 	const fetchFeed = () => {
+		setIsLoading(true);
 		REQUEST_USER_FEED()
 			.then((res) => {
 				const feedData = res?.data?.data;
@@ -23,6 +25,9 @@ const Feed = () => {
 			})
 			.catch((err) => {
 				handleError(err);
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	};
 
@@ -59,7 +64,7 @@ const Feed = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	return (
+	return !isLoading ? (
 		<div>
 			{userFeed?.length > 0 ? (
 				<div className="flex items-center justify-center my-10">
@@ -78,6 +83,20 @@ const Feed = () => {
 					</div>
 				</div>
 			)}
+		</div>
+	) : (
+		<div className="flex items-center justify-center my-10">
+			<div className="flex w-76 flex-col gap-4">
+				<div className="skeleton h-50 w-full"></div>
+				<div className="skeleton h-4 w-28"></div>
+				<div className="skeleton h-4 w-28"></div>
+				<div className="skeleton h-4 w-full"></div>
+				<div className="skeleton h-4 w-full"></div>
+				<div className="flex items-center justify-center gap-4">
+					<div className="skeleton h-10 w-1/4"></div>
+					<div className="skeleton h-10 w-1/4"></div>
+				</div>
+			</div>
 		</div>
 	);
 };
