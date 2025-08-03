@@ -5,7 +5,7 @@ export const createSocketConnection = () => {
 	const API_URL = import.meta.env.VITE_API_URL;
 
 	if (isProduction) {
-		return io("/", { path: "/socket.io" });
+		return io(API_URL, { path: "/socket.io" });
 	} else {
 		return io(API_URL);
 	}
