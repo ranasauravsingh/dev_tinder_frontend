@@ -36,7 +36,7 @@ const Requests = () => {
 			fromUserId,
 		};
 
-		REQUEST_REVIEW_USER_REQUEST(null, requestParams)
+		REQUEST_REVIEW_USER_REQUEST({}, requestParams)
 			.then((res) => {
 				const reviewResponse = res?.data?.data;
 				if (reviewResponse) {

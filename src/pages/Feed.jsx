@@ -37,7 +37,7 @@ const Feed = () => {
 			toUserId,
 		};
 
-		REQUEST_SEND_USER_REQUEST(null, requestParams)
+		REQUEST_SEND_USER_REQUEST({}, requestParams)
 			.then((res) => {
 				const sendResponse = res?.data?.data;
 				if (sendResponse) {
